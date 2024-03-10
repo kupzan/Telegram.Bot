@@ -494,6 +494,11 @@ public class Message
     public InlineKeyboardMarkup? ReplyMarkup { get; set; }
 
     /// <summary>
+    /// Is there MessageEntityType.BotCommand
+    /// </summary>
+    public bool IsHasBotCommand => Entities?.Any(a => a.Type == MessageEntityType.BotCommand) ?? false;
+
+    /// <summary>
     /// Gets the <see cref="MessageType"/> of the <see cref="Message"/>
     /// </summary>
     /// <value>
