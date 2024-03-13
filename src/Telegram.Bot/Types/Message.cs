@@ -164,10 +164,10 @@ public class Message
     /// <value>
     /// The entity contents.
     /// </value>
-    public IEnumerable<string>? EntityValues =>
+    public IEnumerable<(MessageEntityType, string)>? EntityValues =>
         Text is null
             ? default
-            : Entities?.Select(entity => Text.Substring(entity.Offset, entity.Length));
+            : Entities?.Select(entity => (entity.Type, Text.Substring(entity.Offset, entity.Length)));
 
     /// <summary>
     /// Optional. Message is an animation, information about the animation. For backward compatibility, when this
